@@ -35,3 +35,21 @@ export default {
   margin-top: 60px;
 }
 </style>
+
+<style scoped>
+form {
+  margin-bottom: 20px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+button {
+  margin-left: 10px;
+}
+</style>
