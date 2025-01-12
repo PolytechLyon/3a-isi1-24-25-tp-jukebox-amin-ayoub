@@ -1,20 +1,37 @@
-<!-- filepath: /w:/ISI1/3a-isi1-24-25-tp-jukebox-amin-ayoub/src/App.vue -->
 <template>
   <div id="app">
-    <Controller />
+    <HomeView :songs="songs" @add-song="addSong" />
   </div>
 </template>
 
 <script>
-import Controller from './Controller.vue';
+import HomeView from './views/HomeView.vue';
 
 export default {
+  name: 'App',
   components: {
-    Controller
+    HomeView
+  },
+  data() {
+    return {
+      songs: []
+    };
+  },
+  methods: {
+    addSong(song) {
+      this.songs.push(song);
+    }
   }
 };
 </script>
 
 <style>
-/* Ajoutez vos styles ici */
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>

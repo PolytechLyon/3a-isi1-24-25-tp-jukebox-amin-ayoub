@@ -116,4 +116,3 @@ Cette extension nécessite l'utilisation de l'API de navigation de Vue Router.
 
 
 
-

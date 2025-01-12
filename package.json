@@ -1,15 +1,20 @@
 {
-  "name": "my-vue-app",
+  "name": "music-playlist-app",
   "version": "1.0.0",
+  "description": "A web application to manage a music playlist using Vue 3.",
+  "main": "src/main.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test": "vue-cli-service test:unit"
+    "lint": "vue-cli-service lint"
   },
+  "author": "",
+  "license": "MIT",
   "dependencies": {
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@vue/cli-service": "^4.5.19"
+    "@vue/cli-service": "^4.5.0",
+    "@vue/cli-plugin-babel": "^4.5.0"
   }
 }
