@@ -1,8 +1,8 @@
 # Compte Rendu TP Jukebox
 
 ## Binôme
-- Nom Prénom
-- Nom Prénom
+- Messaoudi Amin
+- Nadir Ayoub
 
 ## Choix de conception et de réalisation
 
