@@ -2,9 +2,16 @@
   <div>
     <h1>Boite a musique !</h1>
     <form @submit.prevent="submitSong">
-      <input v-model="newSong.title" placeholder="Song Title" required />
-      <input v-model="newSong.link" placeholder="Song Link" />
-      <input type="file" @change="handleFileUpload" />
+      <select v-model="importMode">
+        <option value="link">Importer un lien</option>
+        <option value="file">Importer un fichier</option>
+      </select>
+      <div v-if="importMode === 'link'">
+        <input v-model="newSong.link" placeholder="Song Link" required />
+      </div>
+      <div v-if="importMode === 'file'">
+        <input type="file" @change="handleFileUpload" required />
+      </div>
       <button type="submit">Add Song</button>
     </form>
     <div>
@@ -19,9 +26,10 @@
       </label>
     </div>
     <ul>
-      <li v-for="song in songs" :key="song.link || song.file.name">
-        {{ song.title }}
+      <li v-for="(song, index) in songs" :key="song.link || song.file.name">
+        {{ song.link || song.file.name }}
         <button @click="playSong(song)">Play</button>
+        <button @click="deleteSong(index)">Delete</button>
       </li>
     </ul>
     <audio ref="audio" controls @ended="handleEnd"></audio>
@@ -39,10 +47,10 @@ export default {
   data() {
     return {
       newSong: {
-        title: '',
         link: '',
         file: null
       },
+      importMode: 'link', // Default import mode
       repeatMode: 'none',
       currentSongIndex: 0
     };
@@ -54,7 +62,6 @@ export default {
     submitSong() {
       if (this.newSong.link || this.newSong.file) {
         this.$emit('add-song', { ...this.newSong });
-        this.newSong.title = '';
         this.newSong.link = '';
         this.newSong.file = null;
       } else {
@@ -69,6 +76,9 @@ export default {
         audio.src = URL.createObjectURL(song.file);
       }
       audio.play();
+    },
+    deleteSong(index) {
+      this.$emit('delete-song', index);
     },
     handleEnd() {
       const audio = this.$refs.audio;

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HomeView :songs="songs" @add-song="addSong" />
+    <HomeView :songs="songs" @add-song="addSong" @delete-song="deleteSong" />
   </div>
 </template>
 
@@ -20,6 +20,9 @@ export default {
   methods: {
     addSong(song) {
       this.songs.push(song);
+    },
+    deleteSong(index) {
+      this.songs.splice(index, 1);
     }
   }
 };
@@ -33,23 +36,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-</style>
-
-<style scoped>
-form {
-  margin-bottom: 20px;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-button {
-  margin-left: 10px;
 }
 </style>
