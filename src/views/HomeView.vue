@@ -100,46 +100,4 @@ export default {
 };
 </script>
 
-<style scoped>
-h1 {
-  color: #42b983;
-  margin-bottom: 20px;
-}
-form {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-select, input, button {
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-button {
-  background-color: #42b983;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #369f6b;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-li button {
-  margin-left: 10px;
-}
-</style>
+<style scoped src="../styles/styles.css"></style>
