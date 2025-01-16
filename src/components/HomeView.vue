@@ -15,18 +15,8 @@
       <button type="submit">Add Song</button>
     </form>
     <div>
-      <label>
-        <input type="radio" value="none" v-model="repeatMode" /> Ne pas répéter
-      </label>
-      <label>
-        <input type="radio" value="single" v-model="repeatMode" /> Répéter le son
-      </label>
-      <label>
-        <input type="radio" value="list" v-model="repeatMode" /> Répéter la liste
-      </label>
     </div>
     <Playlist :songs="songs" @play-song="playSong" @delete-song="deleteSong" />
-    <audio ref="audio" controls @ended="handleEnd"></audio>
   </div>
 </template>
 
