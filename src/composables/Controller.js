@@ -22,7 +22,11 @@ export function useSongs() {
 
   const playSong = (song) => {
     if (audio.value) {
-      audio.value.src = song.link || URL.createObjectURL(song.file);
+      if (song.link) {
+        audio.value.src = song.link;
+      } else if (song.file) {
+        audio.value.src = URL.createObjectURL(song.file);
+      }
       audio.value.play();
     }
   };
@@ -36,7 +40,7 @@ export function useSongs() {
       audio.value.play();
     } else if (repeatMode.value === 'list') {
       const currentIndex = songs.value.findIndex(
-        (song) => song.link === audio.value.src || URL.createObjectURL(song.file) === audio.value.src
+        (song) => song.link === audio.value.src || (song.file && URL.createObjectURL(song.file) === audio.value.src)
       );
       const nextIndex = (currentIndex + 1) % songs.value.length;
       playSong(songs.value[nextIndex]);

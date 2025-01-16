@@ -14,9 +14,14 @@
       </div>
       <button type="submit">Add Song</button>
     </form>
-    <div>
-    </div>
-    <Playlist :songs="songs" @play-song="playSong" @delete-song="deleteSong" />
+    <Playlist 
+      :songs="songs" 
+      :repeatMode="repeatMode" 
+      @update:repeatMode="repeatMode = $event" 
+      @play-song="playSong" 
+      @delete-song="deleteSong" 
+    />
+    <audio ref="audio" controls @ended="handleEnd"></audio>
   </div>
 </template>
 
