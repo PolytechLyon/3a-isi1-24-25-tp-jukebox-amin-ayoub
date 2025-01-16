@@ -4,27 +4,19 @@
   </div>
 </template>
 
-<script>
-import HomeView from './views/HomeView.vue';
+<script setup>
+import { ref } from 'vue';
+import HomeView from './components/HomeView.vue';
+import Playlist from './components/Playlist.vue';
 
-export default {
-  name: 'App',
-  components: {
-    HomeView
-  },
-  data() {
-    return {
-      songs: []
-    };
-  },
-  methods: {
-    addSong(song) {
-      this.songs.push(song);
-    },
-    deleteSong(index) {
-      this.songs.splice(index, 1);
-    }
-  }
+const songs = ref([]);
+
+const addSong = (song) => {
+  songs.value.push(song);
+};
+
+const deleteSong = (index) => {
+  songs.value.splice(index, 1);
 };
 </script>
 
