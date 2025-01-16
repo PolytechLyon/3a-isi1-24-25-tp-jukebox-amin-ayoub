@@ -7,7 +7,7 @@
         <option value="file">Importer un fichier</option>
       </select>
       <div v-if="importMode === 'link'">
-        <input v-model="newSong.link" placeholder="Song Link" required />
+        <input v-model="newSong.link" placeholder="Lien du son" required />
       </div>
       <div v-if="importMode === 'file'">
         <input type="file" @change="handleFileUpload" required />
