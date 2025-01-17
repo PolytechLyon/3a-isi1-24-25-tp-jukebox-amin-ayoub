@@ -1,5 +1,7 @@
 import { ref } from 'vue';
 
+var currentIndex = 0;
+
 export function useSongs() {
   const songs = ref([]);
   const newSong = ref({ link: '', file: null });
@@ -28,6 +30,7 @@ export function useSongs() {
         audio.value.src = URL.createObjectURL(song.file);
       }
       audio.value.play();
+      currentIndex = index;
     }
   };
 
@@ -38,13 +41,13 @@ export function useSongs() {
   const handleEnd = () => {
     if (repeatMode.value === 'single') {
       audio.value.play();
-    } else if (repeatMode.value === 'list') {
-      const currentIndex = songs.value.findIndex(
-        (song) => song.link === audio.value.src || (song.file && URL.createObjectURL(song.file) === audio.value.src)
-      );
-      const nextIndex = (currentIndex + 1) % songs.value.length;
-      playSong(songs.value[nextIndex]);
+  } else if (repeatMode.value === 'list') {
+    currentIndex++;
+    if (currentIndex >= songs.value.length) {
+      currentIndex = 0;
     }
+  playSong(songs.value[currentIndex]);
+}
   };
 
   return {
