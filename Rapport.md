@@ -5,6 +5,7 @@
 - Nadir Ayoub
 
 ## Choix de conception et de réalisation
+Nous avons dans un premier temps basé notre conception sur l'architecture basé sur les composant Vue, en utilisant l'API controls puis nous avons modifié cela pour nous baser sur l'API Compositions.
 
 ### Structure du projet
 Nous avons structuré notre projet en utilisant les conventions de Vue.js pour organiser les composants, les vues et les styles. La structure du projet est la suivante :
@@ -36,6 +37,6 @@ Nous avons utilisé l'API `URL.createObjectURL` pour gérer les fichiers audio l
 ## Difficultés rencontrées (optionnel)
 - Mise en place de l'environnement de travail
 - Gestion des fichiers audio locaux et des liens.
-- Implémentation des différents modes de répétition.
+- Implémentation des différents modes de répétition (notamment la boucle de Playlist qui nous a fait bloqué car le systeme pour passer d'un son a l'autre semblait ambigue).
 
 ## Extensions réalisées (optionnel)
